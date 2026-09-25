@@ -11,6 +11,7 @@ Der Lernplaner hilft Lernenden dabei, anstehende Aufgaben für verschiedene Fäc
 - **Aufgaben erstellen**: Neue Aufgaben mit Titel, Fach/Thema, optionalem Fälligkeitsdatum, Priorität (`hoch`, `normal`, `niedrig`) und Status (`offen`, `erledigt`) anlegen.
 - **Eingabevalidierung**: Verhindert das Speichern von leeren Titeln sowie Titeln, die nur aus Leerzeichen bestehen, inklusive klarer Fehlermeldung und automatischer Fehlerbereinigung bei korrekter Eingabe.
 - **Aufgabenliste anzeigen**: Übersicht aller gespeicherten Aufgaben mit Metadaten-Badges sowie einem Leerzustand-Hinweis bei leerer Liste.
+- **Aufgaben filtern**: Schnelles Filtern der Aufgabenliste nach Status („Alle“, „Offen“, „Erledigt“) ohne Neuladen der Seite.
 - **Status umschalten**: Status einer Aufgabe direkt per Klick zwischen „offen“ und „erledigt“ wechseln (inklusive visueller Kennzeichnung erledigter Aufgaben).
 - **Aufgaben löschen**: Bestehende Aufgaben bei Bedarf aus der Liste entfernen.
 

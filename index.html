@@ -55,6 +55,11 @@
 
       <section class="list-section">
         <h2>Aufgabenliste</h2>
+        <div class="filter-group" role="group" aria-label="Aufgaben filtern">
+          <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">Alle</button>
+          <button type="button" class="filter-btn" data-filter="offen" aria-pressed="false">Offen</button>
+          <button type="button" class="filter-btn" data-filter="erledigt" aria-pressed="false">Erledigt</button>
+        </div>
         <ul id="task-list" class="task-list"></ul>
         <p id="empty-state" class="empty-state">Keine Aufgaben vorhanden.</p>
       </section>

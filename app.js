@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'lernplaner_tasks';
+let currentFilter = 'all';
 
 /**
  * Lädt die Aufgaben aus dem localStorage.
@@ -33,16 +34,26 @@ function renderTasks() {
   const emptyStateElement = document.getElementById('empty-state');
   const tasks = getTasks();
 
+  const filteredTasks = tasks.filter((task) => {
+    if (currentFilter === 'offen') {
+      return task.status === 'offen';
+    }
+    if (currentFilter === 'erledigt') {
+      return task.status === 'erledigt';
+    }
+    return true;
+  });
+
   taskListElement.innerHTML = '';
 
-  if (tasks.length === 0) {
+  if (filteredTasks.length === 0) {
     emptyStateElement.style.display = 'block';
     return;
   }
 
   emptyStateElement.style.display = 'none';
 
-  tasks.forEach((task) => {
+  filteredTasks.forEach((task) => {
     const li = document.createElement('li');
     li.className = `task-item ${task.status === 'erledigt' ? 'is-erledigt' : ''}`;
 
@@ -230,6 +241,23 @@ document.addEventListener('DOMContentLoaded', () => {
       showTitleError('Der Titel darf nicht leer sein oder nur aus Leerzeichen bestehen.');
     });
   }
+
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const selectedFilter = btn.dataset.filter;
+      if (selectedFilter === currentFilter) {
+        return;
+      }
+      currentFilter = selectedFilter;
+      filterButtons.forEach((b) => {
+        const isActive = b === btn;
+        b.classList.toggle('is-active', isActive);
+        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      renderTasks();
+    });
+  });
 
   renderTasks();
 });
