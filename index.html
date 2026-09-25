@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lernplaner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Lernplaner</h1>
+    </header>
+
+    <main>
+      <section class="form-section">
+        <h2>Neue Aufgabe</h2>
+        <form id="task-form">
+          <div class="form-group">
+            <label for="task-title">Titel</label>
+            <input type="text" id="task-title" name="title" required placeholder="z. B. Kapitel 3 lesen" aria-describedby="task-title-error">
+            <span id="task-title-error" class="error-message" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="task-subject">Fach oder Thema</label>
+            <input type="text" id="task-subject" name="subject" required placeholder="z. B. Mathematik">
+          </div>
+
+          <div class="form-group">
+            <label for="task-due-date">Fälligkeitsdatum</label>
+            <input type="date" id="task-due-date" name="dueDate">
+          </div>
+
+          <div class="form-group">
+            <label for="task-priority">Priorität</label>
+            <select id="task-priority" name="priority">
+              <option value="hoch">hoch</option>
+              <option value="normal" selected>normal</option>
+              <option value="niedrig">niedrig</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="task-status">Status</label>
+            <select id="task-status" name="status">
+              <option value="offen" selected>offen</option>
+              <option value="erledigt">erledigt</option>
+            </select>
+          </div>
+
+          <button type="submit" id="add-task-btn">Aufgabe hinzufügen</button>
+        </form>
+      </section>
+
+      <section class="list-section">
+        <h2>Aufgabenliste</h2>
+        <ul id="task-list" class="task-list"></ul>
+        <p id="empty-state" class="empty-state">Keine Aufgaben vorhanden.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
